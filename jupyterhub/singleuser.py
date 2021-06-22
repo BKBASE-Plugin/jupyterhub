@@ -159,13 +159,6 @@ page_template = """
 {% block header_buttons %}
 {{super()}}
 
-<span>
-    <a href='{{hub_control_panel_url}}'
-       class='btn btn-default btn-sm navbar-btn pull-right'
-       style='margin-right: 4px; margin-left: 2px;'>
-        Control Panel
-    </a>
-</span>
 {% endblock %}
 
 {% block logo %}

@@ -407,6 +407,10 @@ class BaseHandler(RequestHandler):
 
     def get_current_user_cookie(self):
         """get_current_user from a cookie token"""
+        token = self.request.headers.get('Authorization', '')
+        bk_token = self.get_cookie('bk_token', self.get_cookie('bk_ticket', ''))
+        if not token or not bk_token:
+            raise web.HTTPError(status_code=403, log_message='Not Authentication')
         return self._user_for_cookie(self.hub.cookie_name)
 
     async def get_current_user(self):
